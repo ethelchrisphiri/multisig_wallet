@@ -1,0 +1,9 @@
+# .gitignore
+venv/
+__pycache__/
+*.pyc
+.multisig_state.json
+*.log
+
+*.dat
+bitcoin.conf
