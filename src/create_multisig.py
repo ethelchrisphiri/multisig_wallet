@@ -1,6 +1,6 @@
 """
 Step 3: Build the 2 of 3 multisig descriptor from the three signers'
-xpubs, and import it into a watch only coordinator wallet that holds no
+xpubs and import it into a watch only coordinator wallet that holds no
 private keys of its own.
 """
 
