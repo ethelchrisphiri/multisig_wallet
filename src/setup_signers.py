@@ -1,20 +1,19 @@
 """
 Step 2: Create 3 independent signer wallets and export their xpubs.
+
 Each signer wallet holds its own private keys, simulating a separate
 person/device. Only the xpub descriptor (never a private key) gets
 shared with the other participants.
 """
 
-from src.rpc import node_rpc, wallet_rpc
-
+from src.rpc import node_rpc, wallet_rpc, ensure_wallet
 SIGNERS = ["signer_a", "signer_b", "signer_c"]
 DERIVATION_PATH = "84h/1h/0h"
 
+
 def create_signer_wallet(node, name: str):
-    existing = [w for w in node.listwallets()]
-    if name not in existing:
-        node.createwallet(name)
-    return wallet_rpc(name)
+    return ensure_wallet(node, name)
+
 
 def get_signer_xpub(wallet, account_path: str = DERIVATION_PATH) -> str:
     """Pull the external (receive) descriptor for this wallet at the

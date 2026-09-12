@@ -7,15 +7,13 @@ coins (regtest requires 100 confirmations for coinbase maturity, hence
 multisig address.
 """
 
-from src.rpc import node_rpc, wallet_rpc
+from src.rpc import node_rpc, wallet_rpc, ensure_wallet
 
 FAUCET_WALLET = "faucet"
 
 
 def ensure_faucet_wallet(node):
-    if FAUCET_WALLET not in node.listwallets():
-        node.createwallet(FAUCET_WALLET)
-    return wallet_rpc(FAUCET_WALLET)
+    return ensure_wallet(node, FAUCET_WALLET)
 
 
 def fund_multisig(multisig_address: str, amount_btc: float = 0.5) -> str:
@@ -23,10 +21,10 @@ def fund_multisig(multisig_address: str, amount_btc: float = 0.5) -> str:
     faucet = ensure_faucet_wallet(node)
 
     faucet_address = faucet.getnewaddress()
-    node.generatetoaddress(101, faucet_address)  
+    node.generatetoaddress(101, faucet_address)  # mature coinbase funds
 
     txid = faucet.sendtoaddress(multisig_address, amount_btc)
-    node.generatetoaddress(1, faucet_address) 
+    node.generatetoaddress(1, faucet_address)  # confirm the funding tx
 
     print(f"Sent {amount_btc} BTC to {multisig_address}")
     print(f"Funding txid: {txid}")
