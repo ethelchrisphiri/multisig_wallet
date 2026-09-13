@@ -1,3 +1,5 @@
+![Tests](https://github.com/ethelchrisphiri/multisig_wallet/actions/workflows/tests.yml/badge.svg)
+
 # 2-of-3 Multisig Wallet Tool
 
 A working demonstration of 2-of-3 multisig custody using Bitcoin Core's
