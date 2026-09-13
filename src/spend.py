@@ -6,7 +6,7 @@ Step 4: Spend from the multisig via a real PSBT signing walkthrough.
 - signer_a signs independently.
 - signer_b signs on top of signer_a's result. Since this is 2-of-3,
   Bitcoin Core recognizes the threshold is met and marks the PSBT
-  complete right away — signer_c's key is never touched.
+  complete right away signer_c's key is never touched.
 - Finalize (converts the PSBT into a broadcastable raw transaction) and
   broadcast it.
 """

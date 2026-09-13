@@ -123,6 +123,25 @@ python cli.py fund <multisig-address-from-previous-step>
 python cli.py spend --to <destination-address> --amount 0.1
 ```
 
+## Frontend (Streamlit)
+
+A simple browser based UI is included as an alternative to the CLI.
+
+```bash
+pip install streamlit
+streamlit run app.py
+```
+
+This opens a local web page at `http://localhost:8501` with buttons for
+each step (create signers, build multisig, spend) instead of typing CLI
+commands. It calls the exact same `src/` functions as `cli.py` — just a
+different way of triggering them.
+
+**Note:** this requires `bitcoind` running locally in regtest mode, the same as the CLI. It's a local development tool, not a hosted demo it isn't deployed anywhere publicly since it depends on a real Bitcoin node running alongside it.
+
+
+![Streamlit UI](image.png)
+
 ## Testing
 
 ```bash
