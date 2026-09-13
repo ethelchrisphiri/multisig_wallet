@@ -140,7 +140,7 @@ different way of triggering them.
 **Note:** this requires `bitcoind` running locally in regtest mode, the same as the CLI. It's a local development tool, not a hosted demo it isn't deployed anywhere publicly since it depends on a real Bitcoin node running alongside it.
 
 
-![Streamlit UI](image.png)
+![Streamlit UI](screenshot.png)
 
 ## Testing
 

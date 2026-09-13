@@ -7,3 +7,5 @@ __pycache__/
 
 *.dat
 bitcoin.conf
+bitcoin-27.0/
+bitcoin-27.0-x86_64-linux-gnu.tar.gz
